@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     ProductsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

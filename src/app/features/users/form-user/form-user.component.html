@@ -1,0 +1,31 @@
+<h1> formControl </h1>
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control"  placeholder="Enter email" [formControl]="email">
+
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control"  placeholder="Password" [formControl]="pwd">
+
+  <button  class="btn btn-primary" [disabled]="email.invalid || pwd.invalid" (click)="save()">save</button>
+
+  <h1> FormGroup </h1>
+  <form [formGroup]="formUser">
+    <label>Email address</label>
+    <input type="email" class="form-control"  placeholder="Enter email" formControlName="email">
+     <div class="alert alert-danger" *ngIf="f['email'].invalid && f['email'].touched">
+      <p *ngIf="f['email'].hasError('required')">Email obligatoire </p>
+      <p *ngIf="f['email'].hasError('email')">Email invalid</p>
+     </div>
+    <label>Password</label>
+    <input type="password" class="form-control"  placeholder="Password" formControlName="pwd">
+
+     <label>Telephone</label>
+    <input type="text" class="form-control"  placeholder="Telephone" formControlName="tel" >
+
+    <label>address</label>
+    <input type="text" class="form-control"  placeholder="Address" formControlName="address" >
+
+    <label>Age</label>
+    <input type="text" class="form-control"  placeholder="age" formControlName="age" >
+
+  <button  class="btn btn-primary" [disabled]="formUser.invalid" (click)="save()">save</button>
+</form>

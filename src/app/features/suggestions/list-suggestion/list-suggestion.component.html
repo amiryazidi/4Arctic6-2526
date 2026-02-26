@@ -1,0 +1,25 @@
+<a routerLink="./addSugg"> Ajouter suggestion</a>
+
+<input type="text" class="form-control mb-3" placeholder="Search suggestions..." [(ngModel)]="searchItem">
+<div class="row">
+<div class="col-md-3" *ngFor="let s of suggestions">
+   <ng-container *ngIf="s.title==searchItem || searchItem == null">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Title  : {{s.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Category: {{s.category}}</h6>
+    <p class="card-text">Description: {{s.description}}</p>
+      <p class="card-text">Status: {{s.status}}</p>
+        <p class="card-text">Date: {{s.date | date}}</p>
+        <p class="card-text">Number of Likes: {{s.nbLikes}}</p>
+    <button  class="btn btn-primary"    [hidden]="s.status==='refusee'">Like</button>
+    <button  class="btn btn-info" [routerLink]="['./detail',s.id]">detail</button>
+    <button  class="btn btn-secondary"   [hidden]="s.status==='refusee'"  (click)="AddFavoris(s)">Add to Favories</button>
+  </div>
+</div>
+</ng-container>
+</div>
+</div>
+
+
+
